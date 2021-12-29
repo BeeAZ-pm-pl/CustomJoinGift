@@ -2,15 +2,16 @@
 
 namespace BeeAZ;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
-use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\command\{Command, CommandSender, ConsoleCommandSender};
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\item\enchantment\{Enchantment, EnchantmentInstance};
+use pocketmine\item\enchantment\VanillaEnchantments;
 use onebone\coinapi\CoinAPI;
 use onebone\economyapi\EconomyAPI;
 
@@ -36,13 +37,14 @@ class Main extends PluginBase implements Listener{
 			$eco = $this->cfg->get("MONEY");
       $setname = $this->cfg->get("NAME");
       $setlore = $this->cfg->get("LORE");
-      $idenchant = $this->cfg->get("IDENCHANT");
+      $nameenchant = $this->cfg->get("NAMEENCHANT");
       $levelenchant = $this->cfg->get("LEVEL");
       $message = $this->cfg->get("MESSAGE");
-   $item = Item::get($id, $meta, $amount);
+   $item = ItemFactory::getInstance()->get($id, $meta, $amount);
     $item->setCustomName("{$setname}");
     $item->setLore(array("{$setlore}"));
-    $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment($idenchant), $levelenchant));
+    $ench = VanillaEnchantments::$nameenchant();
+    $item->addEnchantment(new EnchantmentInstance($ench, $levelenchant));
 	 $player->getInventory()->addItem($item);
 	 EconomyAPI::getInstance()->addMoney($player, $eco);
 	 CoinAPI::getInstance()->addCoin($player, $coin);

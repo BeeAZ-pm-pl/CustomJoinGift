@@ -4,7 +4,7 @@ META: 0 #meta item
 AMOUNT: 1 #amount item 
 NAME: Kit Newbie #set name item
 LORE: Thank you #set lore item
-IDENCHANT: 15 #id enchant item
+NAMEENCHANT: EFFICIENCY #name enchant item
 LEVEL: 1 #level enchant
 #Money and coin
 COIN: 100 #use coin Crafting from economy onebone
