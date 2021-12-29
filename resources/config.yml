@@ -1,0 +1,13 @@
+#Custom Item Name Lore Use \n For Line Break
+ID: 2 #id item
+META: 0 #meta item
+AMOUNT: 1 #amount item 
+NAME: Kit Newbie #set name item
+LORE: Thank you #set lore item
+IDENCHANT: 15 #id enchant item
+LEVEL: 1 #level enchant
+#Money and coin
+COIN: 100 #use coin Crafting from economy onebone
+MONEY: 100 #use economy onebone
+#MESSAGE CUSTOM 
+MESSAGE: "You Got 100 Coins And 100 Money \n And A Newbie Kit" #set message 
